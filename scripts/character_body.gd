@@ -6,12 +6,21 @@ const JUMP_VELOCITY = -500.0
 var ACCELERATION = 3
 var jumpMax = 2
 var jumpCounter = 0
+var timeSinceLastBullet = 0
+var bulletScene = preload("res://scenes/spike.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
+func _physics_process(delta):	
+	if (Input.is_action_pressed("aim_up") || Input.is_action_pressed("aim_down") || Input.is_action_pressed("aim_left") || Input.is_action_pressed("aim_right")):
+		timeSinceLastBullet += delta
+		if timeSinceLastBullet >= 0.25:
+			var aimDirection = Vector2(Input.get_axis("aim_left","aim_right"), Input.get_axis("aim_up","aim_down"))
+			if aimDirection.length() != 0:
+				shoot_bullet(aimDirection)
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -48,3 +57,12 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+
+func shoot_bullet(direction):
+	var instance = bulletScene.instantiate()
+	instance.direction = direction
+	instance.position = position
+	instance.z_index = z_index - 1
+	add_sibling(instance)
+	timeSinceLastBullet = 0
