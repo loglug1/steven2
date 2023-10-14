@@ -1,31 +1,51 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr25iwhwq4rts"]
+[gd_scene load_steps=7 format=3 uid="uid://dr25iwhwq4rts"]
 
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_qnwvp"]
-[ext_resource type="Texture2D" uid="uid://8u7sxkjue7rg" path="res://sprites/deathscreen.png" id="2_nhx01"]
+[ext_resource type="Texture2D" uid="uid://cyy0e0v2ylpgg" path="res://sprites/gameOverScreen.png" id="2_oql1v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sn2l"]
+bg_color = Color(1, 1, 1, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dc3dm"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_it28m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dgclt"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
 
 [node name="DeathScreen" type="Node2D"]
 script = ExtResource("1_qnwvp")
 
+[node name="deathScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.72)
+texture = ExtResource("2_oql1v")
+
 [node name="Quit" type="Button" parent="."]
-offset_left = 1146.0
-offset_top = 252.0
-offset_right = 1760.0
-offset_bottom = 456.0
-rotation = 0.578756
-scale = Vector2(1.14133, 1.03219)
+offset_left = 695.0
+offset_top = 694.0
+offset_right = 1309.0
+offset_bottom = 898.0
+rotation = 0.00154701
+scale = Vector2(0.875517, 0.473737)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8sn2l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dc3dm")
 
 [node name="play" type="Button" parent="."]
-offset_left = 1100.0
-offset_top = -142.0
-offset_right = 1108.0
-offset_bottom = -134.0
-rotation = 0.30096
-scale = Vector2(94.169, 42.7429)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540.5)
-scale = Vector2(0.962, 0.722)
-texture = ExtResource("2_nhx01")
+offset_left = 602.0
+offset_top = 535.0
+offset_right = 610.0
+offset_bottom = 543.0
+rotation = 0.000150875
+scale = Vector2(88.6531, 13.4613)
+theme_override_styles/normal = SubResource("StyleBoxFlat_it28m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dgclt")
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

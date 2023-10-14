@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cxujo20ls4eod"]
 
-[ext_resource type="Script" path="res://scenes/options.gd" id="1_b6vfu"]
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_b6vfu"]
 [ext_resource type="Texture2D" uid="uid://dlikw4h0117bx" path="res://sprites/options.png" id="1_wn7gp"]
-[ext_resource type="Script" path="res://scenes/masterVol.gd" id="2_8aku6"]
+[ext_resource type="Script" path="res://scripts/masterVol.gd" id="2_8aku6"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_w2qw6"]
 grow_begin = -5.0
