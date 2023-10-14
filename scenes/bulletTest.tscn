@@ -1,24 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0uf2ctxlioqp"]
 
 [ext_resource type="PackedScene" uid="uid://bae1tguqe0bvy" path="res://scenes/boss.tscn" id="1_dqqur"]
-[ext_resource type="PackedScene" uid="uid://dora7vf5efvh" path="res://scenes/tire.tscn" id="2_yicsm"]
+[ext_resource type="PackedScene" uid="uid://dlvbst3qorpki" path="res://scenes/spike.tscn" id="2_xprjf"]
 
 [node name="bulletTest" type="Node2D"]
 
 [node name="Boss" parent="." instance=ExtResource("1_dqqur")]
 position = Vector2(911, 522)
 
-[node name="tire" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(339, 883)
-collision_mask = 0
-script = null
+[node name="spike" parent="." instance=ExtResource("2_xprjf")]
+position = Vector2(189, 160)
+scale = Vector2(0.255, 0.255)
 
-[node name="tire2" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(1736, 208)
-collision_mask = 0
-script = null
+[node name="spike2" parent="." instance=ExtResource("2_xprjf")]
+position = Vector2(182, 878)
 
-[node name="tire3" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(278, 224)
-collision_mask = 0
-script = null
+[node name="spike3" parent="." instance=ExtResource("2_xprjf")]
+position = Vector2(1693, 183)
