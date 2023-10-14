@@ -1,6 +1,6 @@
 extends Node2D
 
-var speed = 800
+var speed = 700
 var direction = Vector2.DOWN
 var strength = 100
 

@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 
-const SPEED = 475.0
+const SPEED = 500.0
 const JUMP_VELOCITY = -500.0
 var ACCELERATION = 3
-var jumpMax = 2
+var jumpMax = 3
 var jumpCounter = 0
 var canHoldWall = true
 var timeSpentWalling = 0
@@ -12,10 +12,17 @@ var timeSinceLastBullet = 0
 var bulletScene = preload("res://scenes/fireball.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.25
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.1
 
 
 func _physics_process(delta):	
+	#handle giving jumps back
+	if ((is_on_floor() || is_on_wall()) && jumpCounter >= 2) :
+		if (is_on_wall()) :
+			jumpCounter = 1
+		else :
+			jumpCounter = 0
+	#shooting
 	if (Input.is_action_pressed("aim_up") || Input.is_action_pressed("aim_down") || Input.is_action_pressed("aim_left") || Input.is_action_pressed("aim_right")):
 		timeSinceLastBullet += delta
 		if timeSinceLastBullet >= 0.25:
@@ -28,20 +35,21 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	if !is_on_floor():
 		velocity.x = SPEED + ACCELERATION
-	if ((is_on_floor() || is_on_wall()) && jumpCounter >= 2) :
-		if (is_on_wall()) :
-			jumpCounter = 1
-		else :
-			jumpCounter = 0
+	#fall thru plats
 	if (is_on_floor() && position.y > 0) :
 		if (Input.is_action_pressed("move_down")) :
 			position.y += 5
+	#wall jump
 	if (is_on_wall() && (Input.is_action_pressed("move_left") || (Input.is_action_pressed("move_right")))) :
 		velocity.y = 0
 		if(Input.is_action_pressed('move_right')) :
 			velocity.x = -JUMP_VELOCITY * ACCELERATION
+			velocity.y = 40
+			jumpCounter --1
 		if (Input.is_action_pressed('move_left')) :
 			velocity.x = JUMP_VELOCITY * ACCELERATION
+			velocity.y = 40
+			jumpCounter --1
 			
 		
 	# Handle Jump + double jump
@@ -51,7 +59,7 @@ func _physics_process(delta):
 
 	# hard fall
 	if Input.is_action_just_pressed("move_down") and !is_on_floor():
-		velocity.y = -JUMP_VELOCITY + 250
+		velocity.y = -JUMP_VELOCITY + 350
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("move_left", "move_right")
