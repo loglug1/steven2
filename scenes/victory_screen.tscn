@@ -1,20 +1,37 @@
-[gd_scene load_steps=2 format=3 uid="uid://d16tx5dba7vna"]
+[gd_scene load_steps=7 format=3 uid="uid://d16tx5dba7vna"]
 
+[ext_resource type="Script" path="res://scenes/victory_screen.gd" id="1_s1ena"]
 [ext_resource type="Texture2D" uid="uid://3l7frr5xy8da" path="res://sprites/boss_sprite_placeholder.png" id="1_xmjq7"]
+[ext_resource type="Texture2D" uid="uid://bamfim1b2a6ki" path="res://sprites/winScreen.png" id="2_g70ym"]
+[ext_resource type="Script" path="res://scenes/FORD TRUCK MONTH.gd" id="4_uuurt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dmjr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i5mf"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
 
 [node name="victory_screen" type="Node2D"]
+script = ExtResource("1_s1ena")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(961.75, 541.5)
-scale = Vector2(7.682, 4.324)
+[node name="winScreen" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1, 1)
+texture = ExtResource("2_g70ym")
+
+[node name="mainMenu" type="Button" parent="."]
+offset_left = 735.0
+offset_top = 925.0
+offset_right = 1266.0
+offset_bottom = 1016.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_0dmjr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8i5mf")
+
+[node name="FORD TRUCK MONTH" type="Sprite2D" parent="."]
+position = Vector2(4645, 779)
 texture = ExtResource("1_xmjq7")
+script = ExtResource("4_uuurt")
 
-[node name="Label" type="Label" parent="."]
-offset_left = 164.0
-offset_top = 683.0
-offset_right = 1797.0
-offset_bottom = 1021.0
-theme_override_font_sizes/font_size = 121
-text = "CONGRATS!
-YOU WON A FORD-F150!!!!!!!!"
-horizontal_alignment = 1
+[connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
