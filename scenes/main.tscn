@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbshs2s8dtftn"]
+[gd_scene load_steps=12 format=3 uid="uid://cbshs2s8dtftn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7qtts"]
 [ext_resource type="Texture2D" uid="uid://bwwrbdjup6obe" path="res://sprites/main screen offical2.png" id="2_u607e"]
+[ext_resource type="AudioStream" uid="uid://bbt76xy13y744" path="res://audio/title_theme.mp3" id="3_1p1qh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j045g"]
 
@@ -79,6 +80,10 @@ offset_bottom = 416.0
 scale = Vector2(2.05843, 1.53707)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_vpohb")
 theme_override_styles/hover = SubResource("StyleBoxFlat_d4pdx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1p1qh")
+autoplay = true
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]

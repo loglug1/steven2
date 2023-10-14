@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6nd2bnrkatqe"]
+[gd_scene load_steps=4 format=3 uid="uid://c6nd2bnrkatqe"]
 
 [ext_resource type="Script" path="res://scripts/credits.gd" id="1_4rq04"]
 [ext_resource type="Texture2D" uid="uid://wuju7yw8seo0" path="res://sprites/newCreditsScreen.png" id="2_01gtd"]
+[ext_resource type="AudioStream" uid="uid://bbt76xy13y744" path="res://audio/title_theme.mp3" id="3_eodp8"]
 
 [node name="credits" type="Node2D"]
 script = ExtResource("1_4rq04")
@@ -17,5 +18,9 @@ scale = Vector2(1.15005, 1.23788)
 position = Vector2(960, 540)
 scale = Vector2(0.96, 0.72)
 texture = ExtResource("2_01gtd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eodp8")
+autoplay = true
 
 [connection signal="pressed" from="Return to start" to="." method="_on_return_to_start_pressed"]

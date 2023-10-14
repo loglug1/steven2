@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr25iwhwq4rts"]
+[gd_scene load_steps=8 format=3 uid="uid://dr25iwhwq4rts"]
 
 [ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_qnwvp"]
 [ext_resource type="Texture2D" uid="uid://cyy0e0v2ylpgg" path="res://sprites/gameOverScreen.png" id="2_oql1v"]
+[ext_resource type="AudioStream" uid="uid://bbt76xy13y744" path="res://audio/title_theme.mp3" id="3_eehnl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8sn2l"]
 bg_color = Color(1, 1, 1, 0)
@@ -46,6 +47,10 @@ rotation = 0.000150875
 scale = Vector2(88.6531, 13.4613)
 theme_override_styles/normal = SubResource("StyleBoxFlat_it28m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_dgclt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_eehnl")
+autoplay = true
 
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
