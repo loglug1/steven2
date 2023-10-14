@@ -1,3 +1,49 @@
-[gd_scene format=3 uid="uid://cxujo20ls4eod"]
+[gd_scene load_steps=6 format=3 uid="uid://cxujo20ls4eod"]
+
+[ext_resource type="Script" path="res://scenes/options.gd" id="1_b6vfu"]
+[ext_resource type="Texture2D" uid="uid://dlikw4h0117bx" path="res://sprites/options.png" id="1_wn7gp"]
+[ext_resource type="Script" path="res://scenes/masterVol.gd" id="2_8aku6"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_w2qw6"]
+grow_begin = -5.0
+grow_end = -5.0
+thickness = 22
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6s1k"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
 
 [node name="options" type="Node2D"]
+script = ExtResource("1_b6vfu")
+
+[node name="back" type="Button" parent="."]
+offset_left = 47.0
+offset_top = 27.0
+offset_right = 195.0
+offset_bottom = 109.0
+
+[node name="optionbackground" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.72)
+texture = ExtResource("1_wn7gp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 586.0
+offset_top = 345.0
+offset_right = 1213.0
+offset_bottom = 445.0
+scale = Vector2(1.19158, 1.62326)
+
+[node name="masterVol" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/slider = SubResource("StyleBoxLine_w2qw6")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_k6s1k")
+step = 0.1
+value = 50.0
+script = ExtResource("2_8aku6")
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
+[connection signal="value_changed" from="VBoxContainer/masterVol" to="VBoxContainer/masterVol" method="_on_value_changed"]
