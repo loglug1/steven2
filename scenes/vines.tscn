@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://fwasrdk5nl1x"]
 
-[ext_resource type="Texture2D" uid="uid://he1wdfitp2ag" path="res://sprites/vines.png" id="1_dclmh"]
 [ext_resource type="Script" path="res://scripts/vines.gd" id="1_idved"]
+[ext_resource type="Texture2D" uid="uid://c0mh82eyp0j67" path="res://sprites/new_vines.png" id="2_2rbn1"]
 
 [node name="vines" type="Area2D"]
 scale = Vector2(1e-05, 1e-05)
@@ -10,7 +10,7 @@ collision_mask = 16
 script = ExtResource("1_idved")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dclmh")
+texture = ExtResource("2_2rbn1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(96, 5, -96, 5, -96, -4.4, -95.1, -5, 96, -5)

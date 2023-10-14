@@ -1,4 +1,5 @@
-[gd_scene load_steps=12 format=3 uid="uid://co7uff4hmdnkp"]
+[gd_scene load_steps=13 format=3 uid="uid://co7uff4hmdnkp"]
+
 
 [ext_resource type="PackedScene" uid="uid://c02d6wbu7h1rt" path="res://scenes/character_body.tscn" id="1_hc1f7"]
 [ext_resource type="PackedScene" uid="uid://blueb5ue0u0w3" path="res://scenes/backgroundImage.tscn" id="2_mem43"]
@@ -7,6 +8,7 @@
 [ext_resource type="Script" path="res://scripts/platforms.gd" id="5_f4o4b"]
 [ext_resource type="Script" path="res://scripts/vineSpawner.gd" id="6_52mbk"]
 [ext_resource type="PackedScene" uid="uid://bcl2qodocgleh" path="res://scenes/vineSpawner.tscn" id="6_fx2p5"]
+[ext_resource type="AudioStream" uid="uid://b2e2fuhd78t6q" path="res://audio/game_theme.mp3" id="8_t37i1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc5o5"]
 size = Vector2(1141, 3.68752)
@@ -286,6 +288,10 @@ scale = Vector2(1.6, 1.6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(991.5, -5.5)
 shape = SubResource("RectangleShape2D_8fjyn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_t37i1")
+autoplay = true
 
 [connection signal="ready" from="vineSpawner" to="vineSpawner" method="_on_ready"]
 [connection signal="timeout" from="vineSpawner/Timer" to="vineSpawner" method="_on_timer_timeout" flags=18]
