@@ -20,6 +20,7 @@ func _physics_process(delta):
 	if ((is_on_floor() || is_on_wall()) && jumpCounter >= 2) :
 		if (is_on_wall()) :
 			jumpCounter = 1
+			timeSpentWalling = timeSpentWalling + delta
 		else :
 			jumpCounter = 0
 	#shooting
@@ -44,12 +45,14 @@ func _physics_process(delta):
 		velocity.y = 0
 		if(Input.is_action_pressed('move_right')) :
 			velocity.x = -JUMP_VELOCITY * ACCELERATION
-			velocity.y = 40
-			jumpCounter --1
+			if (timeSpentWalling > 3) :
+				velocity.y = 40
+				jumpCounter --1
 		if (Input.is_action_pressed('move_left')) :
 			velocity.x = JUMP_VELOCITY * ACCELERATION
-			velocity.y = 40
-			jumpCounter --1
+			if (timeSpentWalling > 3) :
+				velocity.y = 40
+				jumpCounter --1
 			
 		
 	# Handle Jump + double jump
