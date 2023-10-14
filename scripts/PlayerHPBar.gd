@@ -19,12 +19,7 @@ func _process(delta):
 		$ProgressBar2.value = value
 		set_process(false)
 	is_player_dead()
-		
-		
 
-func _on_button_pressed():
-	set_bar_value(value-100)
-	
 
 func is_player_dead():
 	if(value <= 0):

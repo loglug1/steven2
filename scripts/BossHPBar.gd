@@ -18,17 +18,12 @@ func _process(delta):
 	if($ProgressBar2.value - value <= 0.5):
 		$ProgressBar2.value = value
 		set_process(false)
-	is_player_dead()
-		
-		
+	is_boss_dead()
 
-func _on_button_pressed():
-	set_bar_value(value-100)
-	
 
-func is_player_dead():
+func is_boss_dead():
 	if(value <= 0):
-		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+		get_tree().change_scene_to_file("res://scenes/victory_screen.tscn")
 		
 func decrease_value(amount):
 	set_bar_value(value - amount)

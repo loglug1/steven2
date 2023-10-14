@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d16tx5dba7vna"]
+
+[ext_resource type="Texture2D" uid="uid://3l7frr5xy8da" path="res://sprites/boss_sprite_placeholder.png" id="1_xmjq7"]
+
+[node name="victory_screen" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(961.75, 541.5)
+scale = Vector2(7.682, 4.324)
+texture = ExtResource("1_xmjq7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 164.0
+offset_top = 683.0
+offset_right = 1797.0
+offset_bottom = 1021.0
+theme_override_font_sizes/font_size = 121
+text = "CONGRATS!
+YOU WON A FORD-F150!!!!!!!!"
+horizontal_alignment = 1
