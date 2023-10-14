@@ -1,5 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co7uff4hmdnkp"]
-
+[gd_scene load_steps=12 format=3 uid="uid://co7uff4hmdnkp"]
 
 [ext_resource type="PackedScene" uid="uid://c02d6wbu7h1rt" path="res://scenes/character_body.tscn" id="1_hc1f7"]
 [ext_resource type="PackedScene" uid="uid://blueb5ue0u0w3" path="res://scenes/backgroundImage.tscn" id="2_mem43"]
@@ -234,7 +233,6 @@ position = Vector2(-12.4699, 1.43555)
 scale = Vector2(0.559991, 0.0268076)
 texture = ExtResource("3_tvolj")
 
-
 [node name="vineSpawner" type="Node2D" parent="."]
 light_mask = 0
 visibility_layer = 0
@@ -283,12 +281,11 @@ scale = Vector2(1.6, 1.6)
 position = Vector2(191, 806)
 scale = Vector2(1.6, 1.6)
 
-[connection signal="ready" from="vineSpawner" to="vineSpawner" method="_on_ready"]
-[connection signal="timeout" from="vineSpawner/Timer" to="vineSpawner" method="_on_timer_timeout" flags=18]
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(991.5, -5.5)
 shape = SubResource("RectangleShape2D_8fjyn")
 
+[connection signal="ready" from="vineSpawner" to="vineSpawner" method="_on_ready"]
+[connection signal="timeout" from="vineSpawner/Timer" to="vineSpawner" method="_on_timer_timeout" flags=18]

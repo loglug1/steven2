@@ -119,16 +119,18 @@ func get_radial_attack_directions():
 		
 		
 func big_bad_attack():
-	#shoot everywhere besides mouse pointer
+	#shoot the bottom half
+	var projectile
 	for direction in get_big_bad_attack():
-		spawn_projectile(direction)
+		projectile = spawn_projectile(direction)
+		projectile.indestructible = true
 		
 		
 func get_big_bad_attack():
 	var returnArr = []
 	var mouseDirection = get_mouse_attack_direction()
 	for t in range(20):
-		var possibleDirection = Vector2(cos(t*PI/10),sin(t*PI/10))
+		var possibleDirection = Vector2(cos(t*PI/10), (abs(sin(t*PI/10))))
 		##	if abs(possibleDirection.angle_to(mouseDirection)) >= PI/8:
 		returnArr.append(possibleDirection)
 	return returnArr
