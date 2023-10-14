@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0uf2ctxlioqp"]
+[gd_scene load_steps=4 format=3 uid="uid://c0uf2ctxlioqp"]
 
 [ext_resource type="PackedScene" uid="uid://bae1tguqe0bvy" path="res://scenes/boss.tscn" id="1_dqqur"]
 [ext_resource type="PackedScene" uid="uid://dlvbst3qorpki" path="res://scenes/spike.tscn" id="2_xprjf"]
+[ext_resource type="PackedScene" uid="uid://p6w4yj0ymbuj" path="res://scenes/fireball.tscn" id="3_dnync"]
 
 [node name="bulletTest" type="Node2D"]
 
@@ -17,3 +18,12 @@ position = Vector2(182, 878)
 
 [node name="spike3" parent="." instance=ExtResource("2_xprjf")]
 position = Vector2(1693, 183)
+
+[node name="fireball" parent="." instance=ExtResource("3_dnync")]
+position = Vector2(369, 671)
+
+[node name="fireball2" parent="." instance=ExtResource("3_dnync")]
+position = Vector2(641, 148)
+
+[node name="fireball3" parent="." instance=ExtResource("3_dnync")]
+position = Vector2(926, 951)

@@ -1,8 +1,8 @@
 extends Node2D
 
-var speed = 1500
-var direction
-var strength = 50
+var speed = 800
+var direction = Vector2.DOWN
+var strength = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,12 +24,7 @@ func _on_body_entered(body):
 	var progress_bar = body.find_child("ProgressBar")
 	if progress_bar:
 		progress_bar.decrease_value(strength)
-	queue_free()
 
 
 func _on_screen_exited():
-	queue_free()
-
-
-func _on_area_entered(_area):
 	queue_free()
