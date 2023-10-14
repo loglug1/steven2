@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbshs2s8dtftn"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_7qtts"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_7qtts")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 417.0
+offset_top = 332.0
+offset_right = 709.0
+offset_bottom = 422.0
+text = "Slay the King"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 439.0
+offset_top = 499.0
+offset_right = 683.0
+offset_bottom = 588.0
+text = "Ignore Your Destiny (2)"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 527.0
+offset_top = 108.0
+offset_right = 668.0
+offset_bottom = 142.0
+text = "STEVEN"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
