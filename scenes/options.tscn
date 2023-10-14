@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxujo20ls4eod"]
+
+[ext_resource type="Script" path="res://scenes/HSlider.gd" id="1_i0gdy"]
+
+[node name="options" type="Node2D"]
+
+[node name="master volume slider" type="HSlider" parent="."]
+offset_left = 156.0
+offset_top = 85.0
+offset_right = 808.0
+offset_bottom = 246.0
+value = 100.0
+script = ExtResource("1_i0gdy")
+
+[node name="masteraudio" type="AudioStreamPlayer" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 174.0
+offset_top = 123.0
+offset_right = 656.0
+offset_bottom = 204.0
+text = "Master Volume"
+tab_size = 5
