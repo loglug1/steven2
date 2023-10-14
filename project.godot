@@ -53,11 +53,11 @@ move_down={
 
 [layer_names]
 
-2d_physics/layer_1="Player"
+2d_physics/layer_1="Stage"
 2d_physics/layer_2="Boss"
 2d_physics/layer_3="PlayerProjectiles"
 2d_physics/layer_4="BossProjectiles"
-2d_physics/layer_5="Stage"
+2d_physics/layer_5="Player"
 
 [rendering]
 

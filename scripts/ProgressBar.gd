@@ -23,10 +23,14 @@ func _process(delta):
 
 func _on_button_pressed():
 	set_bar_value(value-100)
+	
 
 func is_player_dead():
 	if(value <= 0):
 		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+		
+func decrease_value(amount):
+	set_bar_value(value - amount)
 
 
 

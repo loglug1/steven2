@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://co7uff4hmdnkp"]
+[gd_scene load_steps=6 format=3 uid="uid://co7uff4hmdnkp"]
 
 [ext_resource type="PackedScene" uid="uid://c02d6wbu7h1rt" path="res://scenes/character_body.tscn" id="1_hc1f7"]
+[ext_resource type="PackedScene" uid="uid://bae1tguqe0bvy" path="res://scenes/boss.tscn" id="1_qln58"]
 [ext_resource type="PackedScene" uid="uid://blueb5ue0u0w3" path="res://scenes/backgroundImage.tscn" id="2_mem43"]
 [ext_resource type="Texture2D" uid="uid://17tato8r78u0" path="res://sprites/darkoak.png" id="3_tvolj"]
 
@@ -9,11 +10,16 @@ size = Vector2(1141, 3.68752)
 
 [node name="gamescene" type="Node2D"]
 
+[node name="Boss" parent="." instance=ExtResource("1_qln58")]
+z_index = 5
+position = Vector2(1002, 396)
+
 [node name="backgroundImage_tscn" parent="." instance=ExtResource("2_mem43")]
 position = Vector2(2, 14)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_hc1f7")]
 position = Vector2(995, 935)
+collision_layer = 16
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

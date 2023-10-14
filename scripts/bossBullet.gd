@@ -20,5 +20,8 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	print("Hit 'Player'")
+	#send signal to player health
+	var progress_bar = body.find_child("ProgressBar")
+	if progress_bar:
+		progress_bar.decrease_value(50)
 	queue_free()

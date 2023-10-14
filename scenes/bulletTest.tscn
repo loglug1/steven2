@@ -9,16 +9,16 @@
 position = Vector2(911, 522)
 
 [node name="tire" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(1255.54, 475.257)
+position = Vector2(339, 883)
 collision_mask = 0
 script = null
 
 [node name="tire2" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(1255.54, 475.257)
+position = Vector2(1736, 208)
 collision_mask = 0
 script = null
 
 [node name="tire3" parent="." instance=ExtResource("2_yicsm")]
-position = Vector2(1255.54, 475.257)
+position = Vector2(278, 224)
 collision_mask = 0
 script = null
