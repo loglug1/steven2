@@ -24,7 +24,7 @@ func _physics_process(delta):
 	if currentAttack == 0:
 		#target player directly
 		timeSinceLastBullet += delta
-		if timeSinceLastBullet >= 0.4:
+		if timeSinceLastBullet >= 0.54:
 			target_attack()
 			timeSinceLastBullet = 0
 	if currentAttack == 1:
@@ -36,14 +36,14 @@ func _physics_process(delta):
 	if currentAttack == 2:
 		#avalanche attack
 		timeSinceLastBullet += delta
-		if timeSinceLastBullet >= 1.9:
+		if timeSinceLastBullet >= 1.62 :
 			avalanche_attack()
 			timeSinceLastBullet = 0
 	if currentAttack == 3:
 		#shoot everywhere besides mouse pointer
 		timeSinceLastBullet += delta
-		if timeSinceLastBullet >= 0.1:
-			anti_mouse_attack()
+		if timeSinceLastBullet >= 0.5:
+			big_bad_attack()
 			timeSinceLastBullet = 0
 			
 
@@ -101,8 +101,11 @@ func get_mouse_attack_direction():
 	
 func rotation_attack():
 	#shoot in rotation
+	var projectile
 	for direction in get_radial_attack_directions():
-		spawn_projectile(direction)
+		projectile = spawn_projectile(direction)
+		projectile.indestructible = true
+		projectile.speed = projectile.speed - 200
 	
 	
 func get_radial_attack_directions():
@@ -115,19 +118,19 @@ func get_radial_attack_directions():
 		]
 		
 		
-func anti_mouse_attack():
+func big_bad_attack():
 	#shoot everywhere besides mouse pointer
-	for direction in get_anti_mouse_attack_directions():
+	for direction in get_big_bad_attack():
 		spawn_projectile(direction)
 		
 		
-func get_anti_mouse_attack_directions():
+func get_big_bad_attack():
 	var returnArr = []
 	var mouseDirection = get_mouse_attack_direction()
 	for t in range(20):
 		var possibleDirection = Vector2(cos(t*PI/10),sin(t*PI/10))
-		if abs(possibleDirection.angle_to(mouseDirection)) >= PI/8:
-			returnArr.append(possibleDirection)
+		##	if abs(possibleDirection.angle_to(mouseDirection)) >= PI/8:
+		returnArr.append(possibleDirection)
 	return returnArr
 
 

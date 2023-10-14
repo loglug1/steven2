@@ -1,8 +1,9 @@
 extends Node2D
 
-var speed = 1500
+var speed = 1100
 var direction
 var strength = 50
+var indestructible = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,4 +33,5 @@ func _on_screen_exited():
 
 
 func _on_area_entered(_area):
-	queue_free()
+	if !indestructible :
+		queue_free()
