@@ -1,42 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbshs2s8dtftn"]
+[gd_scene load_steps=11 format=3 uid="uid://cbshs2s8dtftn"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_7qtts"]
-[ext_resource type="Texture2D" uid="uid://c2n8s47vrldpg" path="res://sprites/steven_homepage.png" id="2_f2nae"]
+[ext_resource type="Texture2D" uid="uid://bwwrbdjup6obe" path="res://sprites/main screen offical2.png" id="2_u607e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j045g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtc0k"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t2kkl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bvljl"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gik0m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wpy8"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vpohb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d4pdx"]
+bg_color = Color(0, 0, 0, 0.294118)
+corner_detail = 1
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_7qtts")
-
-[node name="Play" type="Button" parent="."]
-offset_left = 556.0
-offset_top = 374.0
-offset_right = 848.0
-offset_bottom = 464.0
-scale = Vector2(2.00854, 1.81204)
-text = "Slay the King"
-
-[node name="Quit" type="Button" parent="."]
-offset_left = 492.0
-offset_top = 832.0
-offset_right = 736.0
-offset_bottom = 921.0
-scale = Vector2(3.06384, 2.23405)
-text = "Ignore Your Destiny (2)"
-
-[node name="Credits" type="Button" parent="."]
-offset_left = 680.0
-offset_top = 673.0
-offset_right = 787.0
-offset_bottom = 773.0
-rotation = 0.127238
-scale = Vector2(6.13705, 1.39707)
-
-[node name="Options" type="Button" parent="."]
-offset_left = 564.0
-offset_top = 518.0
-offset_right = 1288.0
-offset_bottom = 794.0
-rotation = 0.122881
-scale = Vector2(1.02182, 0.494829)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 527.0
@@ -45,12 +37,50 @@ offset_right = 668.0
 offset_bottom = 142.0
 text = "STEVEN"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(964, 543)
-scale = Vector2(2.4175, 1.35875)
-texture = ExtResource("2_f2nae")
+[node name="mainscreenart" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.96, 0.72)
+texture = ExtResource("2_u607e")
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[node name="Quit" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 869.0
+offset_right = 903.0
+offset_bottom = 958.0
+scale = Vector2(2.46349, 1.55012)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_j045g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dtc0k")
+
+[node name="Credits" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 690.0
+offset_right = 766.0
+offset_bottom = 790.0
+rotation = -0.000542604
+scale = Vector2(5.61881, 1.38449)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_t2kkl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bvljl")
+
+[node name="Options" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 509.0
+offset_right = 1383.0
+offset_bottom = 785.0
+rotation = 0.000162707
+scale = Vector2(0.830892, 0.501534)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gik0m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4wpy8")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 659.0
+offset_top = 326.0
+offset_right = 951.0
+offset_bottom = 416.0
+scale = Vector2(2.05843, 1.53707)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vpohb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d4pdx")
+
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
