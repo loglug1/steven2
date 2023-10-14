@@ -1,8 +1,14 @@
-[gd_scene format=3 uid="uid://bae1tguqe0bvy"]
+[gd_scene load_steps=3 format=3 uid="uid://bae1tguqe0bvy"]
+
+[ext_resource type="Texture2D" uid="uid://3l7frr5xy8da" path="res://sprites/boss_sprite_placeholder.png" id="1_1h8k5"]
+[ext_resource type="Script" path="res://scripts/boss.gd" id="1_r0nu2"]
 
 [node name="Boss" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_r0nu2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1h8k5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(82, -120.4, 82, -119, 92, -111, 92, -107.4, 100, -87.4, 100, -80, 104.5, -62.9, 121, -57.4, 121, -55.6, 125, -49.6, 125, 87.8, 124.7, 90, 122.8, 90, 118.8, 94, 99, 94, 99, 91.8, 95, 87.8, 95, 78.5, 92, 72.5, 92, 57.9, 81.7, 57.1, 79, 59.8, 79, 70, 80.1, 90, 78.7, 90, 75.6, 104, 74.3, 104, 67.3, 120, 65.8, 120, 60.8, 125, 19.7, 125, 8, 105.6, 8, 102, 4.5, 88, -7.1, 88, -23, 86.9, -23, 84.9, -28.7, 80, -53, 80, -62.6, 109, -64.1, 109, -76.1, 122, -81, 122, -103, 123, -103, 121, -118, 109, -118, 106.5, -125, 94, -125, 7.7, -124.9, 4, -123.9, 4, -119.8, -47, -118.5, -47, -116.6, -55, -115.1, -55, -112.1, -60, -109.3, -60, -105, -60.7, -92.8, -73, -89.4, -73, -72, -76.7, -46.1, -116, -43.5, -116, -33.6, -123, -30.4, -123, -25.1, -125, 68.2, -125)
