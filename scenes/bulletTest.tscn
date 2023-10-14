@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0uf2ctxlioqp"]
+
+[ext_resource type="PackedScene" uid="uid://bae1tguqe0bvy" path="res://scenes/boss.tscn" id="1_dqqur"]
+[ext_resource type="PackedScene" uid="uid://dora7vf5efvh" path="res://scenes/tire.tscn" id="2_yicsm"]
+
+[node name="bulletTest" type="Node2D"]
+
+[node name="Boss" parent="." instance=ExtResource("1_dqqur")]
+position = Vector2(911, 522)
+
+[node name="tire" parent="." instance=ExtResource("2_yicsm")]
+position = Vector2(1255.54, 475.257)
+collision_mask = 0
+script = null
+
+[node name="tire2" parent="." instance=ExtResource("2_yicsm")]
+position = Vector2(1255.54, 475.257)
+collision_mask = 0
+script = null
+
+[node name="tire3" parent="." instance=ExtResource("2_yicsm")]
+position = Vector2(1255.54, 475.257)
+collision_mask = 0
+script = null
