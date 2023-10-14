@@ -12,7 +12,7 @@ size = Vector2(1141, 3.68752)
 
 [node name="Boss" parent="." instance=ExtResource("1_qln58")]
 z_index = 5
-position = Vector2(1002, 396)
+position = Vector2(960, 540)
 
 [node name="backgroundImage_tscn" parent="." instance=ExtResource("2_mem43")]
 position = Vector2(2, 14)

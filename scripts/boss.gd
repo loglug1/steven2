@@ -1,9 +1,11 @@
 extends StaticBody2D
 
-var bulletScene = preload("res://scenes/tire.tscn")
+var bulletScene = preload("res://scenes/snowball.tscn")
 var timeSinceLastBullet = 0
 var currentAttack = 1
 var radialAttackModifier = PI/4
+var hoverAnimationParameter = 0
+@onready var baseLocation = position
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +15,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	hoverAnimationParameter += 0.02
+	position = baseLocation + Vector2(sin(hoverAnimationParameter),cos(hoverAnimationParameter)) * 5
 
 func _physics_process(delta):
 	if currentAttack == 0:
