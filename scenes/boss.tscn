@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://bae1tguqe0bvy"]
+[gd_scene load_steps=7 format=3 uid="uid://bae1tguqe0bvy"]
 
 [ext_resource type="Texture2D" uid="uid://3l7frr5xy8da" path="res://sprites/boss_sprite_placeholder.png" id="1_1h8k5"]
 [ext_resource type="Script" path="res://scripts/boss.gd" id="1_r0nu2"]
+[ext_resource type="Script" path="res://scripts/BossHPBar.gd" id="3_es2fp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq4ww"]
+bg_color = Color(0.545098, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4dim"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.388235, 0.380392, 0.388235, 1)
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nocck"]
+bg_color = Color(1, 0, 0, 1)
 
 [node name="Boss" type="StaticBody2D"]
 collision_layer = 2
@@ -16,4 +35,42 @@ polygon = PackedVector2Array(82, -120.4, 82, -119, 92, -111, 92, -107.4, 100, -8
 [node name="AttackChangeTimer" type="Timer" parent="."]
 wait_time = 5.0
 
+[node name="Boss HP Bar" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="Boss HP Bar"]
+anchors_preset = -1
+anchor_left = 0.342
+anchor_top = 0.06
+anchor_right = 0.342
+anchor_bottom = 0.06
+offset_left = -645.64
+offset_top = 966.2
+offset_right = 1252.36
+offset_bottom = 1005.2
+theme_override_styles/fill = SubResource("StyleBoxFlat_pq4ww")
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+script = ExtResource("3_es2fp")
+metadata/_edit_group_ = true
+
+[node name="ProgressBar2" type="ProgressBar" parent="Boss HP Bar/ProgressBar"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_n4dim")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nocck")
+max_value = 1000.0
+value = 1000.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="Boss HP Bar/ProgressBar"]
+wait_time = 0.308
+one_shot = true
+
 [connection signal="timeout" from="AttackChangeTimer" to="." method="_on_attack_change_timer_timeout"]
+[connection signal="timeout" from="Boss HP Bar/ProgressBar/Timer" to="Boss HP Bar/ProgressBar" method="_on_timer_timeout" flags=18]

@@ -23,4 +23,7 @@ func _on_screen_exited():
 
 func _on_body_entered(body):
 	#damage boss
+	var progress_bar = body.find_child("ProgressBar")
+	if progress_bar:
+		progress_bar.decrease_value(100)
 	queue_free()
