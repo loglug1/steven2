@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcl2qodocgleh"]
+
+[ext_resource type="Script" path="res://scripts/vineSpawner.gd" id="1_jyp1h"]
+
+[node name="vineSpawner" type="Node2D"]
+light_mask = 0
+visibility_layer = 0
+z_index = 3
+script = ExtResource("1_jyp1h")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
