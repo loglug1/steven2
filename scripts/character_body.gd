@@ -12,7 +12,7 @@ var timeSinceLastBullet = 0
 var bulletScene = preload("res://scenes/spike.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.25
 
 
 func _physics_process(delta):	
@@ -33,7 +33,9 @@ func _physics_process(delta):
 			jumpCounter = 1
 		else :
 			jumpCounter = 0
-
+	if (is_on_floor() && position.y > 0) :
+		if (Input.is_action_pressed("move_down")) :
+			position.y += 5
 	if (is_on_wall() && (Input.is_action_pressed("move_left") || (Input.is_action_pressed("move_right")))) :
 		velocity.y = 0
 		if(Input.is_action_pressed('move_right')) :
