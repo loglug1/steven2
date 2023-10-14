@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ds56fwtr84x1y"]
 
-[ext_resource type="Texture2D" uid="uid://mrqahueoo5om" path="res://art/Free-Winter-Backgrounds-Pixel-Art6.png" id="1_nxmq1"]
+[ext_resource type="Texture2D" uid="uid://dp3wux7ldjpf" path="res://sprites/background.png" id="1_nxmq1"]
 
 [node name="Background-Floor" type="Node2D"]
 
