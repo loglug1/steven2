@@ -22,6 +22,22 @@ offset_bottom = 921.0
 scale = Vector2(3.06384, 2.23405)
 text = "Ignore Your Destiny (2)"
 
+[node name="Credits" type="Button" parent="."]
+offset_left = 680.0
+offset_top = 673.0
+offset_right = 787.0
+offset_bottom = 773.0
+rotation = 0.127238
+scale = Vector2(6.13705, 1.39707)
+
+[node name="Options" type="Button" parent="."]
+offset_left = 564.0
+offset_top = 518.0
+offset_right = 1288.0
+offset_bottom = 794.0
+rotation = 0.122881
+scale = Vector2(1.02182, 0.494829)
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 527.0
 offset_top = 108.0
@@ -36,3 +52,5 @@ texture = ExtResource("2_f2nae")
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
