@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr25iwhwq4rts"]
+
+[ext_resource type="Script" path="res://scenes/death_screen.gd" id="1_qnwvp"]
+[ext_resource type="Texture2D" uid="uid://8u7sxkjue7rg" path="res://sprites/deathscreen.png" id="2_nhx01"]
+
+[node name="DeathScreen" type="Node2D"]
+script = ExtResource("1_qnwvp")
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1146.0
+offset_top = 252.0
+offset_right = 1760.0
+offset_bottom = 456.0
+rotation = 0.578756
+scale = Vector2(1.14133, 1.03219)
+
+[node name="play" type="Button" parent="."]
+offset_left = 1100.0
+offset_top = -142.0
+offset_right = 1108.0
+offset_bottom = -134.0
+rotation = 0.30096
+scale = Vector2(94.169, 42.7429)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540.5)
+scale = Vector2(0.962, 0.722)
+texture = ExtResource("2_nhx01")
+
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
