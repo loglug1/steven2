@@ -15,7 +15,6 @@ func _process(delta):
 func _physics_process(delta):
 	timeSinceLastBullet += delta
 	if timeSinceLastBullet >= 0.25:
-		print("spawned bullet")
 		var instance = bulletScene.instantiate()
 		instance.scale = Vector2(0.25,0.25)
 		instance.position = position
