@@ -1,6 +1,6 @@
 extends Area2D
 
-var direction
+var direction = Vector2.ZERO
 var speed = 1500
 
 # Called when the node enters the scene tree for the first time.

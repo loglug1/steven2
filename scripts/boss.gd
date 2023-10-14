@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var bulletScene = preload("res://scenes/snowball.tscn")
 var timeSinceLastBullet = 0
-var currentAttack = 1
+var currentAttack = 0
 var radialAttackModifier = PI/4
 var hoverAnimationParameter = 0
 @onready var baseLocation = position
@@ -42,19 +42,41 @@ func _physics_process(delta):
 				add_sibling(instance)
 			timeSinceLastBullet = 0
 	if currentAttack == 2:
-		print("2")
+		#target mouse pointer
+		timeSinceLastBullet += delta
+		if timeSinceLastBullet >= 0.05:
+			var instance = bulletScene.instantiate()
+			instance.direction = get_mouse_attack_direction()
+			instance.position = position
+			instance.z_index = z_index - 1
+			add_sibling(instance)
+			timeSinceLastBullet = 0
 	if currentAttack == 3:
-		print("3")
+		#shoot everywhere besides mouse pointer
+		timeSinceLastBullet += delta
+		if timeSinceLastBullet >= 0.1:
+			for direction in get_anti_mouse_attack_directions():
+				#bullet1
+				var instance = bulletScene.instantiate()
+				instance.direction = direction
+				instance.position = position
+				instance.z_index = z_index - 1
+				add_sibling(instance)
+			timeSinceLastBullet = 0
 			
 
 func get_target_attack_direction():
 	var player_node = get_node("/root/gamescene/CharacterBody2D")
-	var target
 	if player_node:
-		target = player_node.position
+		return global_position.direction_to(player_node.position)
 	else:
-		target = get_global_mouse_position()
-	return global_position.direction_to(target)
+		return get_mouse_attack_direction()
+		
+		
+func get_mouse_attack_direction():
+	var returnDirection = global_position.direction_to(get_global_mouse_position())
+	#returnDirection.y = abs(returnDirection.y)
+	return returnDirection
 	
 	
 func get_radial_attack_directions():
@@ -65,6 +87,15 @@ func get_radial_attack_directions():
 		Vector2(cos(radialAttackModifier + PI),sin(radialAttackModifier + PI)),
 		Vector2(cos(radialAttackModifier + 3*PI/2),sin(radialAttackModifier + 3*PI/2)),
 		]
+		
+func get_anti_mouse_attack_directions():
+	var returnArr = []
+	var mouseDirection = get_mouse_attack_direction()
+	for t in range(20):
+		var possibleDirection = Vector2(cos(t*PI/10),sin(t*PI/10))
+		if abs(possibleDirection.angle_to(mouseDirection)) >= PI/8:
+			returnArr.append(possibleDirection)
+	return returnArr
 
 
 func change_attack():
