@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d16tx5dba7vna"]
+[gd_scene load_steps=8 format=3 uid="uid://d16tx5dba7vna"]
 
 [ext_resource type="Script" path="res://scenes/victory_screen.gd" id="1_s1ena"]
 [ext_resource type="Texture2D" uid="uid://3l7frr5xy8da" path="res://sprites/boss_sprite_placeholder.png" id="1_xmjq7"]
 [ext_resource type="Texture2D" uid="uid://bamfim1b2a6ki" path="res://sprites/winScreen.png" id="2_g70ym"]
 [ext_resource type="Script" path="res://scenes/FORD TRUCK MONTH.gd" id="4_uuurt"]
+[ext_resource type="AudioStream" uid="uid://bbt76xy13y744" path="res://audio/title_theme.mp3" id="5_md6wg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dmjr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -18,7 +19,6 @@ script = ExtResource("1_s1ena")
 
 [node name="winScreen" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-scale = Vector2(1, 1)
 texture = ExtResource("2_g70ym")
 
 [node name="mainMenu" type="Button" parent="."]
@@ -33,5 +33,9 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_8i5mf")
 position = Vector2(4645, 779)
 texture = ExtResource("1_xmjq7")
 script = ExtResource("4_uuurt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_md6wg")
+autoplay = true
 
 [connection signal="pressed" from="mainMenu" to="." method="_on_main_menu_pressed"]
