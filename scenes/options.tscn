@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxujo20ls4eod"]
+[gd_scene load_steps=7 format=3 uid="uid://cxujo20ls4eod"]
 
 [ext_resource type="Script" path="res://scripts/options.gd" id="1_b6vfu"]
 [ext_resource type="Texture2D" uid="uid://dlikw4h0117bx" path="res://sprites/options.png" id="1_wn7gp"]
 [ext_resource type="Script" path="res://scripts/masterVol.gd" id="2_8aku6"]
+[ext_resource type="AudioStream" uid="uid://bbt76xy13y744" path="res://audio/title_theme.mp3" id="4_2nhkc"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_w2qw6"]
 grow_begin = -5.0
@@ -44,6 +45,10 @@ theme_override_styles/grabber_area = SubResource("StyleBoxFlat_k6s1k")
 step = 0.1
 value = 50.0
 script = ExtResource("2_8aku6")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2nhkc")
+autoplay = true
 
 [connection signal="pressed" from="back" to="." method="_on_back_pressed"]
 [connection signal="value_changed" from="VBoxContainer/masterVol" to="VBoxContainer/masterVol" method="_on_value_changed"]
