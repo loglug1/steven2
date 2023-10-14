@@ -45,14 +45,12 @@ func _physics_process(delta):
 		velocity.y = 0
 		if(Input.is_action_pressed('move_right')) :
 			velocity.x = -JUMP_VELOCITY * ACCELERATION
-			if (timeSpentWalling > 3) :
-				velocity.y = 40
-				jumpCounter --1
+			velocity.y = 40
+			jumpCounter --1
 		if (Input.is_action_pressed('move_left')) :
 			velocity.x = JUMP_VELOCITY * ACCELERATION
-			if (timeSpentWalling > 3) :
-				velocity.y = 40
-				jumpCounter --1
+			velocity.y = 40
+			jumpCounter --1
 			
 		
 	# Handle Jump + double jump
