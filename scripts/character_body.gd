@@ -7,7 +7,7 @@ var ACCELERATION = 3
 var jumpMax = 2
 var jumpCounter = 0
 var timeSinceLastBullet = 0
-var bulletScene = preload("res://scenes/spike.tscn")
+var bulletScene = preload("res://scenes/fireball.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

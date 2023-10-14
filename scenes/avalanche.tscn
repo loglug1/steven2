@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://f4tjlhnd3fal"]
+
+[ext_resource type="Script" path="res://scripts/avalanche.gd" id="1_d6jk2"]
+[ext_resource type="Texture2D" uid="uid://2cb0m7rcug15" path="res://sprites/SnowBall.png" id="2_5jpqm"]
+
+[node name="avalanche" type="Area2D"]
+scale = Vector2(2, 2)
+collision_layer = 40
+collision_mask = 20
+script = ExtResource("1_d6jk2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_5jpqm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(43, -158.7, 43, -157.4, 78, -144.4, 78, -143.1, 109, -122.1, 109, -120.7, 137, -89.8, 137, -87.6, 148, -70.6, 148, -67.5, 156, -50.4, 156, -47, 160, -32.5, 160, 31.9, 156.7, 50, 155.4, 50, 147.4, 73, 146.1, 73, 122.1, 110, 120.9, 110, 92.8, 136, 90.6, 136, 76.6, 146, 74.5, 146, 51.5, 157, 48.3, 157, 38.7, 160, -37, 160, -59, 154.6, -59, 153.4, -79, 145.4, -79, 144, -113, 120, -113, 118.7, -137, 91.8, -137, 89.6, -149, 70.6, -149, 67.4, -158, 47.4, -158, 42.3, -160, 36.3, -160, -35, -157.7, -48, -156.3, -48, -140.3, -86, -139, -86, -112, -120, -109.8, -120, -97.8, -132, -95.7, -132, -73.6, -147, -71.3, -147, -45.4, -158, -41, -158, -32.2, -160, 34.3, -160)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
