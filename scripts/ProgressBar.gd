@@ -7,7 +7,8 @@ func _ready():
 
 func set_bar_value(value_to_set):
 	value = value_to_set
-	$Timer.start()
+	if $Timer.is_stopped():
+		$Timer.start()
 
 func _on_timer_timeout():
 	set_process(true)
@@ -31,8 +32,3 @@ func is_player_dead():
 		
 func decrease_value(amount):
 	set_bar_value(value - amount)
-
-
-
-
-
