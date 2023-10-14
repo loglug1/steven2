@@ -6,11 +6,13 @@ const JUMP_VELOCITY = -500.0
 var ACCELERATION = 3
 var jumpMax = 2
 var jumpCounter = 0
+var canHoldWall = true
+var timeSpentWalling = 0
 var timeSinceLastBullet = 0
 var bulletScene = preload("res://scenes/fireball.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.25
 
 
 func _physics_process(delta):	
@@ -31,13 +33,15 @@ func _physics_process(delta):
 			jumpCounter = 1
 		else :
 			jumpCounter = 0
+	if (is_on_floor() && position.y > 0) :
+		if (Input.is_action_pressed("move_down")) :
+			position.y += 5
 	if (is_on_wall() && (Input.is_action_pressed("move_left") || (Input.is_action_pressed("move_right")))) :
 		velocity.y = 0
-		if (Input.is_action_pressed("move_jump")) :
-			if(Input.is_action_pressed('move_right')) :
-				velocity.x = -JUMP_VELOCITY * ACCELERATION
-			if (Input.is_action_pressed('move_left')) :
-				velocity.x = JUMP_VELOCITY * ACCELERATION
+		if(Input.is_action_pressed('move_right')) :
+			velocity.x = -JUMP_VELOCITY * ACCELERATION
+		if (Input.is_action_pressed('move_left')) :
+			velocity.x = JUMP_VELOCITY * ACCELERATION
 			
 		
 	# Handle Jump + double jump
