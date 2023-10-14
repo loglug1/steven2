@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dr25iwhwq4rts"]
 
-[ext_resource type="Script" path="res://scenes/death_screen.gd" id="1_qnwvp"]
+[ext_resource type="Script" path="res://scripts/death_screen.gd" id="1_qnwvp"]
 [ext_resource type="Texture2D" uid="uid://8u7sxkjue7rg" path="res://sprites/deathscreen.png" id="2_nhx01"]
 
 [node name="DeathScreen" type="Node2D"]
